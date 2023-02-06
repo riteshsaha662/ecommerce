@@ -32,10 +32,13 @@ urlpatterns = [
     path('signup/',views.user_signup, name="usersignup"),
     path('login/',views.user_login,name="login"),
     path('addpost/',views.addpost,name="addpost"),
+
     path('updatepost/<int:id>/',views.updatepost,name="updatepost"),
     path('deletepost/<int:id>/',views.deletepost,name="deletepost"),
-    path('logout/',views.user_logout, name="user_logout"),
-    path('auth/', include('social_django.urls', namespace='social')),
+    
+    path('logout/',views.user_logout, name="logout"),
+    
+    path('oauth/', include('social_django.urls', namespace='social')),
 ]
 
 

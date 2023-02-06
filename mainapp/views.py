@@ -83,17 +83,17 @@ def updatepost(request,id):
     else:
         return HttpResponseRedirect('/login/')
 
-
 def deletepost(request,id):
     if request.user.is_authenticated:
         if request.method == 'POST':
             pi = Post.objects.get(pk=id)
             pi.delete()
-            post = Post.objects.all()
+
+            posts = Post.objects.all()
             user = request.user
             full_name = user.get_full_name()
 
-        return render(request,'dashboard.html' ,{ 'posts' :post, 'full_name' :full_name})
+        return render(request,'dashboard.html',{'posts':posts, 'full_name':full_name})
     else:
         return HttpResponseRedirect('/login/')
 

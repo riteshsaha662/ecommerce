@@ -11,9 +11,6 @@
             <a class="nav-link {% if request.path == "/home/" %} active {% endif %}" aria-current="page" href="/home/">Home</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link {% if request.path == "/dashboard/" %} active {% endif %}" aria-current="page" href="/dashboard/">Dashboard</a>
-          </li>
 
           <li class="nav-item">
             <a class="nav-link {% if request.path == "/contact/" %} active {% endif %}" aria-current="page" href="/contact/">Contact</a>
@@ -27,6 +24,18 @@
             <a class="nav-link {% if request.path == "/admin/" %} active {% endif %}" aria-current="page" href="/admin/">Admin Panel</a>
           </li>
 
+          {% if request.user.is_authenticated %}
+          
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == "/dashboard/" %} active {% endif %}" aria-current="page" href="/dashboard/">Dashboard</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == "/logout/" %} active {% endif %}" aria-current="page" href="/logout/">Logout</a>
+          </li>
+
+          {% else %}
+
           <li class="nav-item">
             <a class="nav-link {% if request.path == "/signup/" %} active {% endif %}" aria-current="page" href="/signup/">Register</a>
           </li>
@@ -34,9 +43,8 @@
           <li class="nav-item">
             <a class="nav-link {% if request.path == "/login/" %} active {% endif %}" aria-current="page" href="/login/">Login</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link {% if request.path == "/logout/" %} active {% endif %}" aria-current="page" href="/logout/">Log Out</a>
-          </li>
+
+          {% endif %}
           
           
         </ul>
