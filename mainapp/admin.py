@@ -4,4 +4,4 @@ from .models import Post
 @admin.register(Post)
 
 class PostModelAdmin(admin.ModelAdmin):
-    list_display=['id','title','desc','image']
+    list_display=['id','title','desc']
